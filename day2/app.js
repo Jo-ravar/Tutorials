@@ -1,3 +1,8 @@
+/**
+ * this is our first file which interact with server
+ * all database connectivity is done here
+ * 
+ */
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
