@@ -44,7 +44,7 @@ app.post('/login',function(req,res){
         req.session.auth = {user: user};
         let resObj = {msg: 'done'};
 		res.status(200).json(resObj.msg.toString());
-		res.send('Your username was ' + user + ' and password was ' + pwd);
+		
 	 } else
 {
 	let resObj = {msg: 'Username/password is  invalid'};
