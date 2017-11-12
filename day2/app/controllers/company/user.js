@@ -1,3 +1,6 @@
+/**
+ * This will contain operations related to user model
+ */
 const express = require('express');
 const router = express.Router();
 
