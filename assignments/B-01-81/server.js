@@ -1,7 +1,7 @@
-var express		=	require('express');
-var session		=	require('express-session');
-var bodyParser  	= 	require('body-parser');
-var app			=	express();
+const express		=	require('express');
+const session		=	require('express-session');
+const bodyParser  	= 	require('body-parser');
+const app			=	express();
 
 app.set('views', __dirname + '/views');
 app.engine('html', require('ejs').renderFile);
@@ -10,7 +10,7 @@ app.use(session({secret: 'ssshhhhh',saveUninitialized: true,resave: true}));
 app.use(bodyParser.json());      
 app.use(bodyParser.urlencoded({extended: true}));
 
-var sess;
+const sess;
 
 app.get('/',function(req,res){
 	sess=req.session;
