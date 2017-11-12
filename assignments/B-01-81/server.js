@@ -59,13 +59,8 @@ app.get('/checklogin',function(req, res){
     }
 });
 
-<<<<<<< HEAD
-app.listen(app.get('port'), function(err){
-    if(!err){
-        console.log('server started at port 3000!!');
-    }
-});
-=======
+
+
 app.get('/logout',function(req,res){
 	
 	req.session.destroy(function(err){
@@ -82,4 +77,4 @@ app.get('/logout',function(req,res){
 app.listen(3000,function(){
 	console.log("App Started on PORT 3000");
 });
->>>>>>> 37666df72f21bcbb22fc29ffecd0b275e2bcc458
+
