@@ -1,0 +1,17 @@
+{
+  "name": "react_frontend",
+  "version": "1.0.0",
+  "description": "a mini project on react ",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next"
+  },
+  "author": "team SH-FRONTEND",
+  "license": "ISC",
+  "dependencies": {
+    "material-ui": "^0.19.4",
+    "next": "^4.1.4",
+    "react": "^16.1.0",
+    "react-dom": "^16.1.0"
+  }
+}
