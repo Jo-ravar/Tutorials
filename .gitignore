@@ -12,7 +12,8 @@
 /build
 /.idea
 
-
+#
+**/.next/
 # misc
 .DS_Store
 .env.local
