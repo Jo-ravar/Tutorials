@@ -2,8 +2,15 @@
  * This page wiil be used to create dashboard
  * and use components and actions related to dashboard
  */
-export default () => (
-  <div>
-    <p>This is the dashboard page</p>
-  </div>
-);
+import React, { Component } from 'react';
+import InfoCard from '../components/dashboard/infoCard';
+
+export default class Table extends Component {
+  render() {
+    return (
+      <div>
+        <InfoCard />
+      </div>
+    );
+  }
+}
