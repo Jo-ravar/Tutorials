@@ -1,56 +1,70 @@
 import React from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import { Card, CardHeader, CardText } from 'material-ui/Card';
-import AppBar from 'material-ui/AppBar';
-import Drawer from 'material-ui/Drawer';
-import MenuItem from 'material-ui/MenuItem';
+import RaisedButton from 'material-ui/RaisedButton';
+import { Card, CardActions, CardHeader, CardText } from 'material-ui/Card';
 
+const style = {
+  margin: 2,
+  alignItems: 'flex-end',
+};
 class InfoCard extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = { open: false };
-        this.handleToggle = this.handleToggle.bind(this);
-        this.handleClose = this.handleClose.bind(this);
-    }
-
-    handleToggle = () => {
-        this.setState({ open: !this.state.open })
-    };
-
-    handleClose = () => {
-        this.setState({ open: false })
-    };
-
-    render() {
-        return (
-            <MuiThemeProvider>
-                <div>
-                    <AppBar title="COMPANY NAME" onLeftIconButtonTouchTap={this.handleToggle} />
-                    <Drawer
-                        docked={false}
-                        width={200}
-                        open={this.state.open}
-                        onRequestChange={this.handleToggle}
-                    >
-                        <MenuItem onClick={this.handleClose}> Interview</MenuItem>
-                        <MenuItem onClick={this.handleClose}> Representative</MenuItem>
-                    </Drawer>
-                    <br></br>
-                    <b>This is sample for card:-- </b>
-                    <br></br>
-                    <Card className="card">
-                        <CardHeader title="Company Info" />
-                        <CardText>
-                            JP Morgan<br />
-                            California<br />
-                            U.S.A<br />
-                            78125<br />
-                        </CardText>
-                    </Card>
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+      <MuiThemeProvider>
+        <div className="cardDiv">
+          <Card>
+            <CardHeader style={{ padding: 5 }}>
+              <p className="header">J.P MORGAN</p>
+            </CardHeader>
+            <CardText style={{ padding: 5, marginRight: 2 }}>
+              <div className="row cardText">California, U.S.A</div>
+              <div className="row cardText">(866) 467-8289.</div>
+              <div className="row cardText">
+                <a href="https://www.jpmorgan.com/">www.jpmorgan.com</a>
+              </div>
+            </CardText>
+            <CardActions style={{ padding: 5 }}>
+              <div className="row">
+                <div className="col-xs-12">
+                  <div className="col-xs-6">
+                    <RaisedButton
+                      label="DOCUMENTS"
+                      primary={true}
+                      style={style}
+                    />
+                  </div>
+                  <div className="col-xs-6">
+                    <RaisedButton label="UPDATE" primary={true} style={style} />
+                  </div>
                 </div>
-            </MuiThemeProvider>
-        );
-    }
+              </div>
+            </CardActions>
+          </Card>
+        </div>
+
+        <style jsx global>{`
+          .cardDiv {
+            padding-top: 20px;
+          }
+          .header {
+            font-family: monospace;
+            font-size: 2.5em;
+            font-style: bold;
+            text-align: center;
+          }
+          .cardText {
+            padding-left: 20px;
+            font-family: Courier New;
+            font-size: 1.5em;
+            text-align: left;
+          }
+        `}</style>
+      </MuiThemeProvider>
+    );
+  }
 }
 
 export default InfoCard;

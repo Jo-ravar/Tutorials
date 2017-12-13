@@ -12,6 +12,7 @@
     "material-ui": "^0.19.4",
     "next": "^4.1.4",
     "react": "^16.1.0",
-    "react-dom": "^16.1.0"
+    "react-dom": "^16.1.0",
+    "react-icons": "^2.2.7"
   }
 }
