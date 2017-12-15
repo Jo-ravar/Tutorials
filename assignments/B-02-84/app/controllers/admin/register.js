@@ -17,5 +17,5 @@ function addAdminDetails(req, res) {
     });
 }
   
-router.post('/register', addAdminDetails);
+router.post('/', addAdminDetails);
 module.exports = router;

@@ -1,11 +1,6 @@
 const mongoose = require('mongoose');
 const schema = mongoose.Schema;
 
-const validateEmail = function(email) {
-    let re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-    return re.test(email)
-};
-
 const adminSchema = new schema(
     {
         email: {
@@ -14,10 +9,8 @@ const adminSchema = new schema(
             lowercase: true,
             unique: true,
             required: true,
-            validate: [validateEmail, 'Please fill a valid email address'],
-            match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please fill a valid email address']
         },
-        user_name: {
+        username: {
             type: String,
             required: true,
         },
@@ -26,3 +19,5 @@ const adminSchema = new schema(
         timestamps: true,
     }
 );
+
+module.exports = mongoose.model('admin', adminSchema);

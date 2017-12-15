@@ -1,18 +1,13 @@
 const mongoose = require('mongoose');
 const schema = mongoose.Schema;
 
-const validateEmail = function(email) {
-    let re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-    return re.test(email)
-};
-
 const intervieweeSchema = new schema(
     {
-        first_name: {
+        firstname: {
             type: String,
             required: true,
         },
-        last_name: {
+        lastname: {
             type: String,
             required: true,
         },
@@ -22,14 +17,11 @@ const intervieweeSchema = new schema(
             lowercase: true,
             unique: true,
             required: true,
-            validate: [validateEmail, 'Please fill a valid email address'],
-            match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please fill a valid email address']
         },
         phone: {
             type: Number,
             required: true,
-            max: 10,
-            min: 10,
+            maxlength: 10,
         },
         age: {
             type: Number,
@@ -41,3 +33,5 @@ const intervieweeSchema = new schema(
         timestamps: true,
     }
 );
+
+module.exports = mongoose.model('interviewee', intervieweeSchema);

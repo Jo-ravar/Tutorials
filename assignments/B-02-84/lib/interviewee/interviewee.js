@@ -8,8 +8,8 @@ const interviewee = require('../../app/models/interviewee');
  */
 function addIntervieweeDetails(intervieweeObj, callback) {
     const newInterviewee = new interviewee({
-        first_name: intervieweeObj.first_name,
-        last_name: intervieweeObj.last_name,
+        firstname: intervieweeObj.firstname,
+        lastname: intervieweeObj.lastname,
         email: intervieweeObj.email,
         phone: intervieweeObj.phone,
         age: intervieweeObj.age,

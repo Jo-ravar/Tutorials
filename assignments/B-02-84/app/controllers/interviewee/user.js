@@ -1,14 +1,14 @@
 const express = require('express');
 const router = express.Router();
-const intervieweeLib = require('../../../lib/interviewee/interviewee');
 const session = require('express-session');
-
+const intervieweeLib = require('../../../lib/interviewee/interviewee');
+/*
 router.use(session({
     secret: 'askdjnksd',
     resave: false,
     saveUninitialized: true,
 }));
-
+*/
 /**
  * 
  * @param {email} email it is the email entered by interviewee to login  
@@ -28,5 +28,5 @@ function login(req, res){
     });
 }
 
-router.get('/', login);
+router.post('/', login);
 module.exports = router;

@@ -9,7 +9,7 @@ const admin = require('../../app/models/admin');
 function addAdminDetails(adminObj, callback) {
     const newAdmin = new admin({
         email: adminObj.email,
-        user_name: adminObj.user_name, 
+        username: adminObj.username, 
     });
 
     newAdmin.save(function(errInSave, savedAdmin) {
@@ -27,7 +27,7 @@ function addAdminDetails(adminObj, callback) {
  * @param {function} callback it contains two parameters - error and fetched instance
  */
 function findAdminDetails(adminObj, callback) {
-    admin.findOne({"email": adminObj.email, "user_name": adminObj.user_name}, function(errInFetch, fetchedInstance){
+    admin.findOne({ "email": adminObj.email, "username": adminObj.username}, function(errInFetch, fetchedInstance){
         if(errInFetch){
             callback(errInFetch);
         }else {
