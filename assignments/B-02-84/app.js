@@ -5,6 +5,7 @@
  */
 const express = require('express');
 const bodyParser = require('body-parser');
+const session = require('express-session');
 const app = express();
 const routes = require('./app/controllers');
 const db_connect = require('./lib/db_connect')();
@@ -12,6 +13,12 @@ const db_connect = require('./lib/db_connect')();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.set('port', process.env.PORT || 3000);
+
+router.use(session({
+    secret: 'askdaskdjfbjshbdjnksd',
+    resave: false,
+    saveUninitialized: true,
+}));
 
 app.use('/', routes);
 
