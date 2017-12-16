@@ -23,14 +23,41 @@ export default class Table extends Component {
   }
 
   handleSubmit(event) {
-    alert('A name was submitted: ' + this.state.value);
+    alert('Hello! Current emailID submitted is : ' + this.state.name);
     event.preventDefault();
+
+   fetch('https://miete-api.herokuapp.com/api/login',{
+      method:'POST',
+      headers:{
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email: this.state.name,
+        password: this.state.password,
+       })
+    })
+    .then((response) => response.json())
+    .then(function(data){
+      var final = `${data.success}`;
+      console.log('success returns: ' + final);
+      if(final == "true")
+      {
+        window.location.href="localhost:3000/dashboard";       
+      }
+      else{
+        alert('Please check your credentials! Login Failed!');
+      }
+    })
+    .catch(function(error) {
+      console.log(JSON.stringify(error));
+    });
   }
-  render() {
+
+  render(){
     return (
       <div>
-        <p>This is page is for checking login API...</p>
-        <form>
+        <p>This page is for checking login API...</p>
+        <form onSubmit={this.handleSubmit}>
           <label>
             Name:
             <input
@@ -51,6 +78,7 @@ export default class Table extends Component {
           </label>
           <input type="submit" value="Submit" />
         </form>
+        <p><b>  </b></p>
       </div>
     );
   }
