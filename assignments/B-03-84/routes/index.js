@@ -1,6 +1,7 @@
 module.exports = function(app, passport) {
   app.get('/login', function(req, res) {
-    res.status(200).json('Cooooooooooooolll  !!!!!!!!!!!!!');
+    console.log(req.user);
+    res.status(200).json(req.user);
   });
 
   app.get(
