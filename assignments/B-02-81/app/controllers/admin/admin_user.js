@@ -22,7 +22,7 @@ function addNewUser(req, res) {
 }
 function viewUser(req , res){
   const userDetails = req.body;
-  admin_userLib.viewUser(userDetails, function(errInFetch, fetchedInstace) {
+  admin_userLib.viewUser( function(errInFetch, fetchedInstace) {
     if (errInFetch) {
       res.status(500).json(errInFetch);
     }
