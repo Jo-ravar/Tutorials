@@ -1,8 +1,21 @@
-const express = require('express');
-const authRoutes = require('./auth');
+module.exports = function(app, passport) {
+  app.get('/login', function(req, res) {
+    res.status(200).json('Cooooooooooooolll  !!!!!!!!!!!!!');
+  });
 
-const router = express.Router();
+  app.get(
+    '/auth/linkedin',
+    passport.authenticate('linkedin', {
+      scope: ['r_basicprofile', 'r_emailaddress'],
+    })
+  );
 
-router.use('/auth', authRoutes);
-
-module.exports = router;
+  app.get(
+    '/auth/linkedin/callback',
+    passport.authenticate('linkedin', { failureRedirect: '/' }),
+    function(req, res) {
+      // Successful authentication, redirect home.
+      res.redirect('/login');
+    }
+  );
+};
