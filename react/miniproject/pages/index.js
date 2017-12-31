@@ -9,94 +9,90 @@ import RaisedButton from 'material-ui/RaisedButton';
 import AppBar from 'material-ui/AppBar';
 import TextField from 'material-ui/TextField';
 
-const Index = () => (
-  <MuiThemeProvider>
-    <div>
-      <p>This will be our login page.</p>
-      <RaisedButton
-        href="/dashboard"
-        label="DASHBOARD"
-        secondary={true}
-        labelPosition="before"
-        containerElement="label"
-        fullWidth={false}
-      />
-    </div>
-  </MuiThemeProvider>
-);
+const style = {
+  margin: 15,
+};
 
-class Login extends Component {
+export default class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: '',
+      name: '',
       password: '',
     };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
-  render() {
+  handleChange(event) {
+    if (event.currentTarget.dataset.name === 'userName') {
+      this.setState({ name: event.currentTarget.value });
+    } else if (event.currentTarget.dataset.name === 'passWord') {
+      this.setState({ password: event.currentTarget.value });
+    }
+  }
+
+  handleSubmit(event) {
+    alert('Hello! Current emailID submitted is : ' + this.state.name);
+    event.preventDefault();
+
+    fetch('https://miete-api.herokuapp.com/api/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email: this.state.name,
+        password: this.state.password,
+      }),
+    })
+      .then(response => response.json())
+      .then(function(data) {
+        var final = `${data.success}`;
+        console.log('success returns: ' + final);
+        if (final == 'true') {
+          window.location.href = '/dashboard';
+        } else {
+          alert('Please check your credentials! Login Failed!');
+        }
+      })
+      .catch(function(error) {
+        console.log(JSON.stringify(error));
+      });
+    }
+
+  render(){
     return (
       <div>
         <MuiThemeProvider>
           <div>
             <AppBar title="Login" />
             <TextField
+            type="text"
+            data-name="userName"
               hintText="Enter your Username"
               floatingLabelText="Username"
-              onChange={(event, newValue) =>
-                this.setState({ username: newValue })
-              }
+              value={this.state.name}
+              onChange={this.handleChange}
             />
             <br />
             <TextField
               type="password"
+              data-name="passWord"
               hintText="Enter your Password"
               floatingLabelText="Password"
-              onChange={(event, newValue) =>
-                this.setState({ password: newValue })
-              }
+              value={this.state.password}
+              onChange={this.handleChange}
             />
             <br />
             <RaisedButton
               label="Submit"
               primary={true}
               style={style}
-              onClick={event => this.handleClick(event)}
+              onClick={event => this.handleSubmit(event)}
             />
           </div>
         </MuiThemeProvider>
       </div>
     );
   }
-
-  handleClick(event) {
-    var apiBaseUrl = 'http://smarthyre/';
-    var self = this;
-    var payload = {
-      email: this.state.username,
-      password: this.state.password,
-    };
-    axios
-      .post(apiBaseUrl + 'login', payload)
-      .then(function(response) {
-        console.log(response);
-        if (response.data.code == 200) {
-          console.log('Login successfull');
-          // To Dashboard <<------------------------------------------------------------------------------------------
-        } else if (response.data.code == 204) {
-          console.log('Username password do not match');
-          alert('username password do not match');
-        } else {
-          console.log('Username does not exists');
-          alert('Username does not exist');
-        }
-      })
-      .catch(function(error) {
-        console.log(error);
-      });
-  }
 }
-
-const style = {
-  margin: 15,
-};
-export default Login;
