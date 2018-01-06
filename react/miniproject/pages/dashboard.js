@@ -10,6 +10,7 @@ import UserInfoCard from '../components/dashboard/userInfoCard';
 import AnalyticsCard from '../components/dashboard/analyticsCard';
 import InterviewCard from '../components/dashboard/interviewCard';
 import AppDrawer from '../components/dashboard/appBar';
+import Footer from '../components/footer';
 
 export default class Table extends Component {
   render() {
@@ -44,20 +45,9 @@ export default class Table extends Component {
               <UserInfoCard />
             </div>
           </div>
-          <div className="col-sm-12 footer">
-            COPYRIGHT &emsp; SMARTHYRE PVT. LTD
-          </div>
+          <Footer />``
         </div>
         <style jsx global>{`
-          .footer {
-            height: 100%;
-            text-align: center;
-            color: white;
-            font-size: 1.5em;
-            font-weight: bold;
-            padding: 20px 20px;
-            background-color: #006064;
-          }
           .completeDiv {
             background-color: #b2ebf2;
           }

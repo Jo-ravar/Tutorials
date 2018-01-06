@@ -1,0 +1,1 @@
+export const footer = '#006064';

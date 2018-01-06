@@ -7,6 +7,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppBar from 'material-ui/AppBar';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
+import Footer from '../components/footer';
 //import axios from 'axios';
 class Register extends Component {
   constructor(props) {
@@ -63,6 +64,7 @@ class Register extends Component {
               onClick={event => this.handleClick(event)}
             />
           </div>
+          <Footer/>
         </MuiThemeProvider>
       </div>
     );

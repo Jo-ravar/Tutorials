@@ -8,6 +8,8 @@ import Head from 'next/head';
 import UserDrawer from '../components/userdashboard/userDrawer';
 import UserScoreCard from '../components/userdashboard/userScoreCard';
 import UserMainCard from '../components/userdashboard/userMainCard';
+import Footer from '../components/footer';
+import { footer } from '../components/color';
 
 export default class UserDashboard extends Component {
   render() {
@@ -28,22 +30,11 @@ export default class UserDashboard extends Component {
             <UserDrawer/>   
             <div className="col-sm-12 completeDiv">
               <UserScoreCard />
-              <UserMainCard/>
+              <UserMainCard />
             </div>     
-          <div className="col-sm-12 footer">
-            COPYRIGHT &emsp; SMARTHYRE PVT. LTD
-          </div>
+          <Footer/>
         </div>
         <style jsx global>{`
-          .footer {
-            height: 100%;
-            text-align: center;
-            color: white;
-            font-size: 1.5em;
-            font-weight: bold;
-            padding: 20px 20px;
-            background-color: #006064;
-          }
           .completeDiv {
             background-color: #b2ebf2;
           }

@@ -8,6 +8,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import RaisedButton from 'material-ui/RaisedButton';
 import AppBar from 'material-ui/AppBar';
 import TextField from 'material-ui/TextField';
+import Footer from '../components/footer';
 
 const style = {
   margin: 15,
@@ -23,6 +24,11 @@ export default class Login extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+
+  /** 
+   * This method is used to handle the changes performed to the
+   * credentials and sets the state to the current values in the field
+   */
   handleChange(event) {
     if (event.currentTarget.dataset.name === 'userName') {
       this.setState({ name: event.currentTarget.value });
@@ -31,10 +37,15 @@ export default class Login extends Component {
     }
   }
 
+  /**
+   * This method is used to call the login api
+   * on the submit button click event
+   */
   handleSubmit(event) {
     alert('Hello! Current emailID submitted is : ' + this.state.name);
     event.preventDefault();
 
+    /** fetch() is used in making the request and fetching the data */
     fetch('https://miete-api.herokuapp.com/api/login', {
       method: 'POST',
       headers: {
@@ -62,6 +73,10 @@ export default class Login extends Component {
 
   render(){
     return (
+      /**
+       * Two textfields are used to get the credentials
+       * and the api is called on submit button click
+       */
       <div>
         <MuiThemeProvider>
           <div>
@@ -90,6 +105,7 @@ export default class Login extends Component {
               style={style}
               onClick={event => this.handleSubmit(event)}
             />
+            <Footer/>
           </div>
         </MuiThemeProvider>
       </div>

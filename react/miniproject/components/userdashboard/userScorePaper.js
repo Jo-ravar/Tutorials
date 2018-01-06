@@ -18,23 +18,23 @@ class UserScorePaper extends React.Component {
   render() {
     return (
       <div>
-        <Paper style={style} zDepth={3} circle={true}>
+        <Paper style={style} zDepth={5} circle={true}>
           <div className="paperDiv">PROFILE SCORE</div>
           <div className="paperDiv2">{this.props.data.profileScore}</div>
         </Paper>
-        <Paper style={style} zDepth={3} circle={true}>
+        <Paper style={style} zDepth={5} circle={true}>
           <div className="paperDiv">PROFILE VIEWS</div>
           <div className="paperDiv2">{this.props.data.profileViews}</div>
         </Paper>
-        <Paper style={style} zDepth={3} circle={true}>
+        <Paper style={style} zDepth={5} circle={true}>
           <div className="paperDiv">INTERVIEWS TAKEN</div>
           <div className="paperDiv2">{this.props.data.interviewsTaken}</div>
         </Paper>
-        <Paper style={style} zDepth={3} circle={true}>
+        <Paper style={style} zDepth={5} circle={true}>
           <div className="paperDiv">LAST INTERVIEW</div>
           <div className="paperDiv2">{this.props.data.lastInterview}</div>
         </Paper>
-        <Paper style={style} zDepth={3} circle={true}>
+        <Paper style={style} zDepth={5} circle={true}>
           <div className="paperDiv">REVIEW RATING</div>
           <div className="paperDiv2">{this.props.data.reviews}</div>
         </Paper>

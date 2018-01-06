@@ -3,6 +3,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppBar from 'material-ui/AppBar';
 import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
+import FlatButton from 'material-ui/FlatButton';
 
 class AppDrawer extends React.Component {
   constructor(props) {
@@ -27,6 +28,7 @@ class AppDrawer extends React.Component {
           <AppBar
             title="COMPANY NAME"
             onLeftIconButtonTouchTap={this.handleToggle}
+            iconElementRight={<FlatButton label="HOME" />}
           />
           <Drawer
             docked={false}

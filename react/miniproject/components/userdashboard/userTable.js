@@ -57,21 +57,51 @@ class UserTable extends React.Component {
                   {eachInterview.location}
                 </TableRowColumn>
                 <TableRowColumn style={{ width: '20%' }}>
-                {eachInterview.experience}
+                  {eachInterview.experience}
                 </TableRowColumn>
                 <TableRowColumn style={{ width: '10%' }}>
-                {eachInterview.startDate}
+                  {eachInterview.startDate}
                 </TableRowColumn>
                 <TableRowColumn style={{ width: '10%' }}>
-                {eachInterview.endDate}
+                  {eachInterview.endDate}
                 </TableRowColumn>
                 <TableRowColumn style={{ width: '10%' }}>
-                <RaisedButton label="APPLY" primary={true}/>
+                  <div className="applyTable">
+                  <span>
+                    <RaisedButton label="APPLY" primary={true} />
+                    </span>
+                  </div>
                 </TableRowColumn>
               </TableRow>
             ))}
           </TableBody>
         </Table>
+        <style jsx global>{`
+          .applyTable span {
+            cursor: pointer;
+            display: inline-block;
+            position: relative;
+            transition: 0.5s;
+          }
+          
+          .applyTable span:after {
+            content: '\00bb';
+            position: absolute;
+            opacity: 0;
+            top: 0;
+            right: -20px;
+            transition: 0.5s;
+          }
+          
+          .applyTable:hover span {
+            padding-right: 25px;
+          }
+          
+          .applyTable:hover span:after {
+            opacity: 1;
+            right: 0;
+          }          
+          `}</style>
       </MuiThemeProvider>
     );
   }

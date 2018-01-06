@@ -7,6 +7,9 @@ import List from 'material-ui/List';
 import Divider from 'material-ui/Divider';
 import Subheader from 'material-ui/Subheader';
 import ListItem from 'material-ui/List/ListItem';
+import UserProfile from './userProfile';
+import FlatButton from 'material-ui/FlatButton';
+import { footer } from '../color';
 
 class UserDrawer extends React.Component {
     constructor(props) {
@@ -31,6 +34,7 @@ class UserDrawer extends React.Component {
                     <AppBar
                         title="Shivani Mulay"
                         onLeftIconButtonTouchTap={this.handleToggle}
+                        iconElementRight={<FlatButton label="HOME" />}
                     />
                     <Drawer
                         docked={false}
@@ -38,19 +42,20 @@ class UserDrawer extends React.Component {
                         open={this.state.open}
                         onRequestChange={this.handleToggle}
                     >
-                    <List>
-                        <Subheader><font color="#006064" size="4"><b>My Account</b></font></Subheader>
-                        <MenuItem onClick={this.handleClose}>My Profile</MenuItem>
-                        <MenuItem onClick={this.handleClose}>Update Profile</MenuItem>
+                        <List>
+                            <MenuItem onClick={this.handleClose}><UserProfile /></MenuItem>
+                            <Subheader><font color={footer} size="4"><b>My Account</b></font></Subheader>
+                            <MenuItem onClick={this.handleClose}>My Profile</MenuItem>
+                            <MenuItem onClick={this.handleClose}>Update Profile</MenuItem>
                         </List>
                         <Divider />
                         <List>
-                        <Subheader><font color="#006064" size="4"><b>Other Options</b></font></Subheader>
-                        <MenuItem onClick={this.handleClose}>Previous Interviews</MenuItem>
-                        <MenuItem onClick={this.handleClose}>My History</MenuItem>
-                        <MenuItem onClick={this.handleClose}>Home</MenuItem>
-                        <MenuItem onClick={this.handleClose}>Feedback</MenuItem>
-                        <MenuItem onClick={this.handleClose}>Logout</MenuItem>
+                            <Subheader><font color={footer} size="4"><b>Other Options</b></font></Subheader>
+                            <MenuItem onClick={this.handleClose}>Previous Interviews</MenuItem>
+                            <MenuItem onClick={this.handleClose}>My History</MenuItem>
+                            <MenuItem onClick={this.handleClose}>Home</MenuItem>
+                            <MenuItem onClick={this.handleClose}>Feedback</MenuItem>
+                            <MenuItem onClick={this.handleClose}>Logout</MenuItem>
                         </List>
                     </Drawer>
                 </div>
